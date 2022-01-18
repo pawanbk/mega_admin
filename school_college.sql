@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 17, 2022 at 08:07 AM
+-- Generation Time: Jan 18, 2022 at 10:53 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `mega_college`
+-- Database: `school_college`
 --
 
 -- --------------------------------------------------------
@@ -80,6 +80,13 @@ CREATE TABLE `admission` (
   `program_id` int(11) NOT NULL,
   `comments` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `admission`
+--
+
+INSERT INTO `admission` (`admission_id`, `name`, `contact`, `email`, `faculty_id`, `program_id`, `comments`) VALUES
+(1, 'Pawan bk', '9824526722', 'shiwanbk@gmail.com', 1, 1, 'How much is the program fee?');
 
 -- --------------------------------------------------------
 
@@ -192,6 +199,13 @@ CREATE TABLE `faculty` (
   `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `faculty`
+--
+
+INSERT INTO `faculty` (`faculty_id`, `name`, `description`, `featured_image`, `is_active`) VALUES
+(1, '10+ 2', '', 'asdadad', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -249,40 +263,42 @@ CREATE TABLE `menu_master` (
 --
 
 INSERT INTO `menu_master` (`menu_id`, `menu_code`, `menu_name`, `menu_index`, `menu_type`, `pre_menu_id`, `is_active`, `icon_class`, `route`, `created_date`, `created_by`, `modified_deleted_remarks`, `modified_by`, `modified_date`) VALUES
-(1, 'courseManagement', 'Course Management', 1, 'outer', 0, 'Y', 'bx bx-book', 'javascript:', '2022-01-09 06:32:42', 1, 'position modified', '1', '2022-01-10 10:48:31'),
-(2, 'categoryList', 'Category List', 0, 'outer', 1, 'Y', NULL, 'App/courseCategoryList', '2022-01-09 06:47:05', 1, NULL, NULL, NULL),
-(3, 'courseList', 'Course List', 1, 'outer', 1, 'Y', NULL, 'App/courseList', '2022-01-09 06:53:40', 1, NULL, NULL, NULL),
+(1, 'facultyProgramM', 'Faculty & Programs', 1, 'outer', 0, 'Y', 'bx bx-book', 'javascript:', '2022-01-09 06:32:42', 1, 'title modified', '2', '2022-01-17 13:34:03'),
+(2, 'facultyManagement', 'Faculty', 0, 'outer', 36, 'Y', 'adasdad', 'App/faculty', '2022-01-09 06:47:05', 1, 'icon changes', '2', '2022-01-17 13:55:17'),
+(3, 'programManagement', 'Program', 1, 'outer', 1, 'Y', 'bx bx-book-open', 'javascript:', '2022-01-09 06:53:40', 1, 'icon changes', '2', '2022-01-17 14:42:11'),
 (4, 'masterSetting', 'Master Setting', 10, 'outer', 0, 'Y', 'bx bx-cog', 'javascript:', '2022-01-09 07:13:54', 1, 'position modified', '1', '2022-01-11 12:01:29'),
-(5, 'siteSetup', 'Site Setup', 1, 'outer', 4, 'Y', 'asdas', 'App/siteSetting/edit/1', '2022-01-09 07:14:47', 1, 'icon changes', '1', '2022-01-09 13:04:08'),
+(5, 'siteSetup', 'Site Setup', 1, 'outer', 4, 'Y', 'asdas', 'App/siteSetting/edit/1', '2022-01-09 07:14:47', 1, 'position modified', '2', '2022-01-17 16:32:58'),
 (6, 'socialSite', 'Social Site Setup', 2, 'outer', 4, 'Y', 'adaa', 'App/socialSite', '2022-01-09 07:22:38', 1, 'title modified', '1', '2022-01-09 13:16:10'),
 (7, 'mailConfig', 'Mail Configuration', 3, 'outer', 4, 'Y', 'aaaa', 'App/emailConfig/edit/1', '2022-01-09 07:29:56', 1, 'route modified', '1', '2022-01-09 13:15:32'),
 (8, 'EventManagement', 'Event Management', 1, 'outer', 0, 'Y', 'bx bxs-calendar-event', 'javascript:', '2022-01-09 07:33:56', 1, NULL, NULL, NULL),
 (9, 'eventCategoryList', 'Category List', 1, 'outer', 8, 'Y', 'aaaa', 'App/eventCategoryList', '2022-01-09 07:34:53', 1, 'title modified', '1', '2022-01-09 13:20:28'),
 (10, 'eventList', 'Event List', 2, 'outer', 8, 'Y', 'aaaa', 'App/eventList', '2022-01-09 07:37:47', 1, 'title modified', '1', '2022-01-09 13:25:33'),
-(11, 'mailManagement', 'Inbox Management', 2, 'outer', 0, 'Y', 'bx bx-message', 'javascript:', '2022-01-09 07:46:12', 1, 'icon changes', '1', '2022-01-09 14:58:18'),
-(12, 'mailList', 'Mail List', 1, 'outer', 11, 'Y', NULL, 'App/mailList', '2022-01-09 07:48:05', 1, NULL, NULL, NULL),
+(11, 'enquiryManagement', 'Online Enquiries', 2, 'outer', 0, 'Y', 'bx bx-message', 'App/enquiries', '2022-01-09 07:46:12', 1, 'position modified', '2', '2022-01-17 14:53:31'),
+(12, 'enquiryList', 'Enquiries', 1, 'outer', 11, 'Y', 'aaaa', 'App/enquiries', '2022-01-09 07:48:05', 1, 'title modified', '2', '2022-01-17 14:54:49'),
 (13, 'userManagement', 'User Management', 4, 'outer', 0, 'Y', 'bx bx-user-pin', 'javascript:', '2022-01-09 07:54:14', 1, NULL, NULL, NULL),
 (14, 'userList', 'User List', 1, 'outer', 13, 'Y', NULL, 'App/userManagement', '2022-01-09 07:54:54', 1, NULL, NULL, NULL),
-(15, 'newsM', 'News Management', 4, 'outer', 0, 'Y', 'bx bx-news', 'javascript:', '2022-01-09 08:05:02', 1, NULL, NULL, NULL),
-(16, 'newsCategory', 'Category List', 1, 'outer', 15, 'Y', NULL, 'App/newsCategoryList', '2022-01-09 08:05:51', 1, NULL, NULL, NULL),
-(17, 'newsList', 'News', 2, 'outer', 15, 'Y', NULL, 'App/news', '2022-01-09 08:07:47', 1, NULL, NULL, NULL),
 (18, 'researchManagement', 'Research Management', 5, 'outer', 0, 'Y', 'bx bx-test-tube', 'javascript:', '2022-01-09 08:46:03', 1, NULL, NULL, NULL),
-(19, 'researchCategory', 'Category List', 1, 'outer', 18, 'Y', NULL, 'App/reseachCategoryList', '2022-01-09 08:46:55', 1, NULL, NULL, NULL),
 (20, 'researchList', 'Research List', 2, 'outer', 18, 'Y', NULL, 'App/researchList', '2022-01-09 08:49:04', 1, NULL, NULL, NULL),
-(21, 'bannerManagement', 'Banner Management', 6, 'outer', 0, 'Y', 'bx bx-photo-album', 'javascript:', '2022-01-09 08:58:02', 1, 'icon changes', '1', '2022-01-09 14:48:48'),
-(22, 'bannerList', 'Banner List', 1, 'outer', 21, 'Y', NULL, 'App/bannerList', '2022-01-09 08:59:11', 1, NULL, NULL, NULL),
-(23, 'lecturerList', 'Lecturers', 3, 'outer', 13, 'Y', 'bx bx-user-check', 'App/lecturers', '2022-01-09 09:15:36', 1, 'position modified', '1', '2022-01-11 12:58:28'),
-(24, 'studentList', 'Student List', 3, 'outer', 13, 'Y', NULL, 'App/students', '2022-01-09 09:16:21', 1, NULL, NULL, NULL),
-(25, 'assignLecturer', 'Assign Lecturer', 3, 'outer', 1, 'Y', NULL, 'App/courseLecturer', '2022-01-09 09:26:02', 1, NULL, NULL, NULL),
-(26, 'galleryManagement', 'Gallery Management', 7, 'outer', 0, 'Y', 'bx bx-images', 'javascript:', '2022-01-09 09:53:00', 1, NULL, NULL, NULL),
-(27, 'galleryList', 'Gallery List', 1, 'outer', 26, 'Y', NULL, 'App/gallery', '2022-01-09 09:53:52', 1, NULL, NULL, NULL),
+(21, 'sliderManagement', 'Slider Management', 6, 'outer', 0, 'Y', 'bx bx-photo-album', 'javascript:', '2022-01-09 08:58:02', 1, 'title modified', '2', '2022-01-17 15:32:34'),
+(22, 'bannerList', 'Slider List', 1, 'outer', 21, 'Y', 'asdasasd', 'App/sliderList', '2022-01-09 08:59:11', 1, 'asasdasdad', '2', '2022-01-17 13:23:18'),
+(24, 'studentList', 'Students', 0, 'outer', 38, 'Y', 'aaaaa', 'App/students', '2022-01-09 09:16:21', 1, 'title modified', '2', '2022-01-17 15:25:32'),
+(25, 'assignLecturer', 'Program Lecturer', 1, 'outer', 3, 'Y', 'asdsdada', 'App/programLecturer', '2022-01-09 09:26:02', 1, 'fsdfsfsfs', '2', '2022-01-17 13:44:58'),
 (28, 'aboutUs', 'About Us', 0, 'outer', 0, 'Y', 'bx bxs-info-circle', 'javascript:', '2022-01-10 05:03:18', 1, NULL, NULL, NULL),
 (29, 'aboutManagement', 'About Us Management', 1, 'outer', 28, 'Y', NULL, 'App/aboutUs', '2022-01-10 05:04:19', 1, NULL, NULL, NULL),
 (30, 'partnerManagement', 'Academic Partner', 2, 'outer', 28, 'Y', 'asdasa', 'App/academicPartner', '2022-01-10 06:43:54', 1, 'asaws', '1', '2022-01-10 12:29:20'),
-(31, 'testimonialM', 'Testimonial List', 9, 'outer', 0, 'Y', 'bx bx-comment', 'javascript:', '2022-01-11 06:16:16', 1, 'title modified', '1', '2022-01-11 12:06:08'),
-(32, 'testinomials', 'Testinomials', 1, 'outer', 31, 'Y', 'scasasa', 'App/testimonialList', '2022-01-11 06:17:28', 1, 'position modified', '1', '2022-01-11 12:06:21'),
-(33, 'lecturers', 'Lecturers', 1, 'outer', 23, 'Y', NULL, 'App/lecturers', '2022-01-11 07:11:30', 1, NULL, NULL, NULL),
-(34, 'socialLinks', 'Social Links', 2, 'outer', 23, 'Y', 'sdsdddsd', 'App/lecturerSocialLinks', '2022-01-11 07:12:31', 1, 'position modified', '1', '2022-01-11 13:02:28');
+(31, 'testimonialM', 'Testimonial', 9, 'outer', 0, 'Y', 'bx bx-comment', 'javascript:', '2022-01-11 06:16:16', 1, 'position modified', '2', '2022-01-17 14:45:55'),
+(32, 'testinomials', 'Testomonial', 1, 'outer', 31, 'Y', 'scasasa', 'App/testimonialList', '2022-01-11 06:17:28', 1, 'title modified', '2', '2022-01-17 17:15:44'),
+(33, 'lecturers', 'Lecturers', 1, 'outer', 38, 'Y', 'asass', 'App/lecturers', '2022-01-11 07:11:30', 1, 'title modified', '2', '2022-01-17 15:16:48'),
+(35, 'programs', 'Programs', 0, 'outer', 3, 'Y', 'asdadad', 'App/programList', '2022-01-17 07:54:19', 2, 'position modified', '2', '2022-01-17 13:43:50'),
+(36, 'faculty', 'Faculties', 0, 'outer', 1, 'Y', 'bx bx-book', 'javascript:', '2022-01-17 08:09:11', 2, 'position modified', '2', '2022-01-17 14:43:25'),
+(37, 'certificate', 'Certificates', 2, 'outer', 28, 'Y', NULL, 'App/certificates', '2022-01-17 09:10:45', 2, NULL, NULL, NULL),
+(38, 'hrManagement', 'HR Management', 5, 'outer', 0, 'Y', 'bx bx-user', 'javascript:', '2022-01-17 09:28:38', 2, NULL, NULL, NULL),
+(39, 'counselorsManagement', 'Counselors', 0, 'outer', 38, 'Y', NULL, 'App/counselors', '2022-01-17 09:40:07', 2, NULL, NULL, NULL),
+(40, 'admissionInfo', 'Admission Info', 3, 'outer', 28, 'Y', NULL, 'App/admissionInfo', '2022-01-17 09:49:04', 2, NULL, NULL, NULL),
+(41, 'notice', 'Notices', 4, 'outer', 42, 'Y', 'asdasdasd', 'App/notices', '2022-01-17 10:05:18', 2, 'position modified', '2', '2022-01-17 15:59:06'),
+(42, 'noticeManagement', 'Notice Management', 6, 'outer', 0, 'Y', 'bx bx-news', 'javascript:', '2022-01-17 10:13:37', 2, NULL, NULL, NULL),
+(43, 'scholarshipManagement', 'Scholarship', 4, 'outer', 28, 'Y', NULL, 'App/scholarship', '2022-01-17 10:23:44', 2, NULL, NULL, NULL),
+(44, 'programVideos', 'Program Videos', 3, 'outer', 3, 'Y', NULL, 'App/programVideos', '2022-01-17 11:02:49', 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -306,11 +322,19 @@ CREATE TABLE `notice` (
 
 CREATE TABLE `programs` (
   `program_id` int(11) NOT NULL,
+  `name` varchar(100) NOT NULL,
   `faculty_id` int(11) NOT NULL,
   `description` text NOT NULL,
   `featured_image` varchar(200) DEFAULT NULL,
   `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `programs`
+--
+
+INSERT INTO `programs` (`program_id`, `name`, `faculty_id`, `description`, `featured_image`, `is_active`) VALUES
+(1, 'science', 1, '', '54007-hnet.com-image.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -356,8 +380,7 @@ CREATE TABLE `program_lecturer` (
 --
 
 INSERT INTO `program_lecturer` (`id`, `lecturer_id`, `program_id`) VALUES
-(1, 1, 1),
-(2, 2, 1);
+(3, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -383,6 +406,19 @@ CREATE TABLE `research` (
   `title` varchar(50) NOT NULL,
   `featured_image` varchar(100) NOT NULL,
   `description` text NOT NULL,
+  `is_active` tinyint(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `scholarship`
+--
+
+CREATE TABLE `scholarship` (
+  `scholarship_id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `file` varchar(200) NOT NULL,
   `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -446,14 +482,6 @@ CREATE TABLE `slider` (
   `featured_image` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `slider`
---
-
-INSERT INTO `slider` (`slider_id`, `title`, `description`, `featured_image`, `link`) VALUES
-(1, 'Best Education for Html template', 'loreaadkjajhsdxasd andhjahda ahsdafkcajdc', '86846-4.jpg', ''),
-(2, 'Best PhP courses', '', '65e3e-1.jpg', '');
 
 -- --------------------------------------------------------
 
@@ -639,6 +667,12 @@ ALTER TABLE `research`
   ADD PRIMARY KEY (`research_id`);
 
 --
+-- Indexes for table `scholarship`
+--
+ALTER TABLE `scholarship`
+  ADD PRIMARY KEY (`scholarship_id`);
+
+--
 -- Indexes for table `site_data`
 --
 ALTER TABLE `site_data`
@@ -700,7 +734,7 @@ ALTER TABLE `academic_partner`
 -- AUTO_INCREMENT for table `admission`
 --
 ALTER TABLE `admission`
-  MODIFY `admission_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `admission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `admission_info`
@@ -742,7 +776,7 @@ ALTER TABLE `event_category`
 -- AUTO_INCREMENT for table `faculty`
 --
 ALTER TABLE `faculty`
-  MODIFY `faculty_id` int(10) NOT NULL AUTO_INCREMENT;
+  MODIFY `faculty_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `lecturers`
@@ -760,7 +794,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `program_description`
@@ -778,7 +812,7 @@ ALTER TABLE `program_detail`
 -- AUTO_INCREMENT for table `program_lecturer`
 --
 ALTER TABLE `program_lecturer`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `program_video`
@@ -791,6 +825,12 @@ ALTER TABLE `program_video`
 --
 ALTER TABLE `research`
   MODIFY `research_id` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `scholarship`
+--
+ALTER TABLE `scholarship`
+  MODIFY `scholarship_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `site_data`
