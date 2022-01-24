@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 18, 2022 at 10:53 AM
+-- Generation Time: Jan 24, 2022 at 07:25 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -41,7 +41,8 @@ CREATE TABLE `about_us_master` (
 --
 
 INSERT INTO `about_us_master` (`id`, `title`, `description`, `featured_image`, `route`, `is_active`) VALUES
-(5, 'Academic International College', '<p>Thames is more than just a place where you come to study for your degree. It is a community of students and faculty from diverse background coming together with a common belief that learning is a lifelong process. On one hand, you will always find being pushed to take responsibility of your own learning while on the other hand you will be encouraged to question, challenge and critically reflect both in and outside the classroom.</p>\r\n', '4530a-image_1620896252.jpg', NULL, 0);
+(1, 'Welcome to Mega College!', '<p>Mega College is more than just a place where you come to study for your degree. It is a community of students and faculty from diverse background coming together with a common belief that learning is a lifelong process. On one hand, you will always find being pushed to take responsibility of your own learning while on the other hand you will be encouraged to question, challenge and critically reflect both in and outside the classroom.</p>\r\n', '707c4-about1.jpg', NULL, 1),
+(2, 'Vision of Education', '<p>The offered courses acquaint students with the requirements of the 21st century apart from enhancing their multi-faceted professionalism for survival in this era of cut-throat competition. It is our conviction that the content of a course, if not delivered properly by an institution, does not meet the objective of imparting required knowledge and skills on the part of the students. Being conscious of this fact, we at Mega have tried to develop strategy so as to make teaching learning process more effective.It is our conviction that the content of a course, if not delivered properly by an institution, does not meet the objective of imparting required knowledge and skills on the part of the students. Being conscious of this fact, we at Mega have tried to develop strategy so as to make teaching learning process more effective. Moreover, Mega College supplements the TU syllabus with practicum packages which are so designed as to make students successful leaders and managers in fields such as civil and diplomatic services, banking, commercial sectors, and services in different branches of the media.</p>\r\n\r\n<p>&nbsp;</p>\r\n', '52417-8.jpg', NULL, 1);
 
 -- --------------------------------------------------------
 
@@ -112,6 +113,14 @@ CREATE TABLE `certificates` (
   `featured_image` varchar(200) NOT NULL,
   `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `certificates`
+--
+
+INSERT INTO `certificates` (`certificate_id`, `name`, `featured_image`, `is_active`) VALUES
+(1, 'abc', '25d4e-1.jpg', 1),
+(2, 'cde', '2b9d1-3.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -188,11 +197,11 @@ INSERT INTO `event_category` (`event_category_id`, `category_name`, `featured_im
 -- --------------------------------------------------------
 
 --
--- Table structure for table `faculty`
+-- Table structure for table `faculties`
 --
 
-CREATE TABLE `faculty` (
-  `faculty_id` int(10) NOT NULL,
+CREATE TABLE `faculties` (
+  `id` int(10) NOT NULL,
   `name` varchar(150) NOT NULL,
   `description` text NOT NULL,
   `featured_image` varchar(150) NOT NULL,
@@ -200,11 +209,13 @@ CREATE TABLE `faculty` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `faculty`
+-- Dumping data for table `faculties`
 --
 
-INSERT INTO `faculty` (`faculty_id`, `name`, `description`, `featured_image`, `is_active`) VALUES
-(1, '10+ 2', '', 'asdadad', 1);
+INSERT INTO `faculties` (`id`, `name`, `description`, `featured_image`, `is_active`) VALUES
+(1, '10+ 2', '<p>Nepal MEGA College is one of the mega distinguised college in Nepal Admission to MEGA is highly selective. Each year there are thousands of applications,&nbsp;but the seats are limited. Candidates who have secured minimum first division or B grade in the SLC can attempt the Entrance test.&nbsp; After getting through the entrance test and the accompanying interview, they are eligible for admission.</p>\r\n', 'de58d-9.jpg', 1),
+(2, 'Bachelors', '<p>Nepal MEGA College is one of the mega distinguised college in Nepal Admission to MEGA is highly selective. Each year there are thousands of applications,&nbsp;but the seats are limited. Candidates who have secured minimum first division or B grade in the SLC can attempt the Entrance test.&nbsp; After getting through the entrance test and the accompanying interview, they are eligible for admission.</p>\r\n', '8adfe-about1.jpg', 1),
+(3, 'Masters', '<p>Nepal MEGA College is one of the mega distinguised college in Nepal Admission to MEGA is highly selective. Each year there are thousands of applications,&nbsp;but the seats are limited. Candidates who have secured minimum first division or B grade in the SLC can attempt the Entrance test.&nbsp; After getting through the entrance test and the accompanying interview, they are eligible for admission.</p>\r\n', 'b4347-14.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -220,20 +231,21 @@ CREATE TABLE `lecturers` (
   `phone_number` varchar(12) NOT NULL,
   `description` varchar(100) NOT NULL,
   `qualification` text NOT NULL,
-  `designation` varchar(50) NOT NULL
+  `designation` varchar(50) NOT NULL,
+  `is_active` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `lecturers`
 --
 
-INSERT INTO `lecturers` (`lecturer_id`, `full_name`, `featured_image`, `email_address`, `phone_number`, `description`, `qualification`, `designation`) VALUES
-(3, 'Mike Hussy', 'f0b9c-7.jpg', 'mike@gmail.com', '0122211100', '', '<p>test</p>\n', 'Senior programmer'),
-(4, 'Daziy Millar', 'af543-18.jpg', 'dazy@gmail.com', '0406624593', '', '<p>askaj</p>\n', 'Senior Finance Lecturer'),
-(5, 'Essy Rojario', '2a011-16.jpg', 'essy@gmail.com', '0406624593', '', '<p>abcd</p>\n', 'Senior Account Lecturer'),
-(6, 'David Lipu', '4c6ff-5.jpg', 'david@gmail.com', '0406624593', '', '<p>ajhasj</p>\n', 'Senior Java Lecturer'),
-(7, 'Tom Steven', 'a63cd-15.jpg', 'tom@email.com', '0406624593', '', '<p>hashasha</p>\n', 'PHP Tutor'),
-(8, 'PAWAN BK', 'a0fe8-student3.jpg', 'shiwanbk@gmail.com', '0406624593', '', '<p><input name=\"facebook\" type=\"checkbox\" value=\"faceboo.com\" /></p>\n', 'developer');
+INSERT INTO `lecturers` (`lecturer_id`, `full_name`, `featured_image`, `email_address`, `phone_number`, `description`, `qualification`, `designation`, `is_active`) VALUES
+(3, 'Mike Hussy', 'f0b9c-7.jpg', 'mike@gmail.com', '0122211100', '', '<p>test</p>\n', 'Senior programmer', 1),
+(4, 'Daziy Millar', 'af543-18.jpg', 'dazy@gmail.com', '0406624593', '', '<p>askaj</p>\n', 'Senior Finance Lecturer', 1),
+(5, 'Essy Rojario', '2a011-16.jpg', 'essy@gmail.com', '0406624593', '', '<p>abcd</p>\n', 'Senior Account Lecturer', 1),
+(6, 'David Lipu', '4c6ff-5.jpg', 'david@gmail.com', '0406624593', '', '<p>ajhasj</p>\n', 'Senior Java Lecturer', 1),
+(7, 'Tom Steven', 'a63cd-15.jpg', 'tom@email.com', '0406624593', '', '<p>hashasha</p>\n', 'PHP Tutor', 1),
+(8, 'Pawan BK', 'a0fe8-student3.jpg', 'shiwanbk@gmail.com', '0406624593', '', '<p><input name=\"facebook\" type=\"checkbox\" value=\"faceboo.com\" /></p>\n', 'developer', 1);
 
 -- --------------------------------------------------------
 
@@ -298,7 +310,8 @@ INSERT INTO `menu_master` (`menu_id`, `menu_code`, `menu_name`, `menu_index`, `m
 (41, 'notice', 'Notices', 4, 'outer', 42, 'Y', 'asdasdasd', 'App/notices', '2022-01-17 10:05:18', 2, 'position modified', '2', '2022-01-17 15:59:06'),
 (42, 'noticeManagement', 'Notice Management', 6, 'outer', 0, 'Y', 'bx bx-news', 'javascript:', '2022-01-17 10:13:37', 2, NULL, NULL, NULL),
 (43, 'scholarshipManagement', 'Scholarship', 4, 'outer', 28, 'Y', NULL, 'App/scholarship', '2022-01-17 10:23:44', 2, NULL, NULL, NULL),
-(44, 'programVideos', 'Program Videos', 3, 'outer', 3, 'Y', NULL, 'App/programVideos', '2022-01-17 11:02:49', 2, NULL, NULL, NULL);
+(44, 'programVideos', 'Program Videos', 3, 'outer', 3, 'Y', NULL, 'App/programVideos', '2022-01-17 11:02:49', 2, NULL, NULL, NULL),
+(45, 'counterM', 'Counter', 4, 'outer', 28, 'Y', NULL, 'App/counter', '2022-01-23 04:24:05', 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -334,7 +347,10 @@ CREATE TABLE `programs` (
 --
 
 INSERT INTO `programs` (`program_id`, `name`, `faculty_id`, `description`, `featured_image`, `is_active`) VALUES
-(1, 'science', 1, '', '54007-hnet.com-image.jpg', 1);
+(1, 'science', 1, '', '54007-hnet.com-image.jpg', 1),
+(2, 'BBA', 2, '', '2d9a2-9.jpg', 1),
+(3, 'BBS', 2, '', 'cac0f-10.jpg', 1),
+(4, 'MBA', 3, '', '887fa-9.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -380,7 +396,8 @@ CREATE TABLE `program_lecturer` (
 --
 
 INSERT INTO `program_lecturer` (`id`, `lecturer_id`, `program_id`) VALUES
-(3, 4, 1);
+(3, 4, 1),
+(4, 7, 1);
 
 -- --------------------------------------------------------
 
@@ -434,6 +451,15 @@ CREATE TABLE `site_data` (
   `data` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `site_data`
+--
+
+INSERT INTO `site_data` (`id`, `title`, `data`) VALUES
+(1, 'Professional Teachers', '50'),
+(2, 'NEWS COURSES EVERY YEARS', '20'),
+(3, 'REGISTERED STUDENTS', '20');
+
 -- --------------------------------------------------------
 
 --
@@ -469,6 +495,18 @@ CREATE TABLE `site_social_link` (
   `link_icon` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `site_social_link`
+--
+
+INSERT INTO `site_social_link` (`social_link_id`, `social_link`, `link_icon`) VALUES
+(1, 'facebook.com', 'fa fa-facebook'),
+(2, 'abcd', 'fa fa-twitter'),
+(3, 'linkedIn', 'fa fa-linkedin'),
+(4, 'abcdef', 'fa fa-pinterest'),
+(5, 'abbcd', 'fa fa-rss'),
+(6, 'abcd', 'fa fa-google-plus');
+
 -- --------------------------------------------------------
 
 --
@@ -482,6 +520,14 @@ CREATE TABLE `slider` (
   `featured_image` varchar(100) NOT NULL,
   `link` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `slider`
+--
+
+INSERT INTO `slider` (`slider_id`, `title`, `description`, `featured_image`, `link`) VALUES
+(4, 'Nepal Mega College', '<p>Mega College is more than just a place where you come to study for your degree. It is a community of students and faculty from diverse background coming together with a common belief that learning is a lifelong process.</p>\r\n', '03460-1-1.jpg', 'abcd'),
+(5, 'Nepal Mega College', '<p>Mega College is more than just a place where you come to study for your degree. It is a community of students and faculty from diverse background coming</p>\r\n', 'c9a4d-2-2.jpg', 'acd');
 
 -- --------------------------------------------------------
 
@@ -529,7 +575,6 @@ CREATE TABLE `testimonials` (
 
 INSERT INTO `testimonials` (`id`, `name`, `description`, `featured_image`, `program_id`) VALUES
 (1, 'Danial Dina', '<p>Pellentese turpis dignissim amet area ducation process facilitating Knowledge.</p>\r\n', 'de9f3-1.jpg', 0),
-(2, 'Pawan bk', '<p>Pellentese turpis dignissim amet area ducation process facilitating Knowledge.</p>\r\n', 'daf04-1.jpg', 0),
 (3, 'Sijan pathak', '<p>Pellentese turpis dignissim amet area ducation process facilitating Knowledge. Pellentese turpis dignissim amet area ducation process facilitating Knowledge.</p>\r\n', 'b4571-1.jpg', 0);
 
 -- --------------------------------------------------------
@@ -613,10 +658,10 @@ ALTER TABLE `event_category`
   ADD PRIMARY KEY (`event_category_id`);
 
 --
--- Indexes for table `faculty`
+-- Indexes for table `faculties`
 --
-ALTER TABLE `faculty`
-  ADD PRIMARY KEY (`faculty_id`);
+ALTER TABLE `faculties`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `lecturers`
@@ -722,7 +767,7 @@ ALTER TABLE `user_auth`
 -- AUTO_INCREMENT for table `about_us_master`
 --
 ALTER TABLE `about_us_master`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `academic_partner`
@@ -746,7 +791,7 @@ ALTER TABLE `admission_info`
 -- AUTO_INCREMENT for table `certificates`
 --
 ALTER TABLE `certificates`
-  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `counsellors`
@@ -773,10 +818,10 @@ ALTER TABLE `event_category`
   MODIFY `event_category_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT for table `faculty`
+-- AUTO_INCREMENT for table `faculties`
 --
-ALTER TABLE `faculty`
-  MODIFY `faculty_id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `faculties`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `lecturers`
@@ -794,7 +839,7 @@ ALTER TABLE `notice`
 -- AUTO_INCREMENT for table `programs`
 --
 ALTER TABLE `programs`
-  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `program_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `program_description`
@@ -812,7 +857,7 @@ ALTER TABLE `program_detail`
 -- AUTO_INCREMENT for table `program_lecturer`
 --
 ALTER TABLE `program_lecturer`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `program_video`
@@ -836,7 +881,7 @@ ALTER TABLE `scholarship`
 -- AUTO_INCREMENT for table `site_data`
 --
 ALTER TABLE `site_data`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `site_setting`
@@ -848,13 +893,13 @@ ALTER TABLE `site_setting`
 -- AUTO_INCREMENT for table `site_social_link`
 --
 ALTER TABLE `site_social_link`
-  MODIFY `social_link_id` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `social_link_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `slider`
 --
 ALTER TABLE `slider`
-  MODIFY `slider_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `slider_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `students`

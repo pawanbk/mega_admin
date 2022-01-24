@@ -32,7 +32,7 @@
               <div class="row">
                 <div class="col-7">
                   <div class="text-primary p-4">
-                    <h5 class="text-primary">Baramajhiya Baje ko Peda </h5>
+                    <h5 class="text-primary">Mega College</h5>
                     <p>Sign in to continue.</p>
                   </div>
                 </div>

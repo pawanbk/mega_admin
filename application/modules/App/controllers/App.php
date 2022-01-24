@@ -127,7 +127,7 @@ class App extends OAS_Controller{
     $data['title_small'] = "Faculties";
 
     $crud = new grocery_CRUD();
-    $crud->set_table('faculty');
+    $crud->set_table('faculties');
     $crud->set_field_upload('featured_image','uploads/faculty');
     $crud->columns(['name','featured_image','is_active']);
     $crud->required_fields('name','email','featured_image','is_active');
@@ -146,7 +146,7 @@ class App extends OAS_Controller{
 
       $crud = new grocery_CRUD();
       $crud->set_table('programs');
-      $crud->set_relation('faculty_id','faculty','name');
+      $crud->set_relation('faculty_id','faculties','name');
       $crud->set_field_upload('featured_image','uploads/program/images');
       $crud->columns(['featured_image','name', 'faculty_id']);
       $crud->required_fields(['name', 'featured_image', 'faculty_id']);
@@ -265,7 +265,7 @@ class App extends OAS_Controller{
       $crud = new grocery_CRUD();
       $crud->set_table('admission');
       $crud->set_relation('program_id','programs','name');
-      $crud->set_relation('faculty_id','faculty','name');
+      $crud->set_relation('faculty_id','faculties','name');
       $crud->columns(['name','contact','email','faculty_id','program_id']);
       $crud->display_as('faculty_id', 'Faculty');
       $crud->display_as('program_id', 'Program');
@@ -448,6 +448,19 @@ class App extends OAS_Controller{
     $output = $crud->render();
     $this->_example_output($output,$data);
   }
+
+  function counter(){
+    $data['main_title'] = "About Us";
+    $data['title_small'] = "Site Data";
+
+    $crud = new grocery_CRUD();
+    $crud->set_table('site_data');
+    $crud->columns(['title','data']);  
+    $crud->required_fields(['title','data']);
+    $output = $crud->render();
+    $this->_example_output($output,$data);
+  }
+  
 
 
   function upload(){
