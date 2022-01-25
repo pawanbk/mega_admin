@@ -274,6 +274,18 @@ class App extends OAS_Controller{
       $output = $crud->render();
       $this->_example_output($output,$data);
   }
+  function inbox(){
+    $data['main_title'] = "Enquiry Management";
+    $data['title_small'] = "Inboxes";
+
+    $crud = new grocery_CRUD();
+    $crud->set_table('contact');
+    $crud->columns(['name','email','phone','message']);
+    $crud->unset_add();
+    $crud->unset_edit();
+    $output = $crud->render();
+    $this->_example_output($output,$data);
+}
 
   function students(){
     if($this->uri->segment(3)=="upload" || $this->uri->segment(4)=="upload"){

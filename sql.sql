@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 24, 2022 at 07:25 AM
+-- Generation Time: Jan 25, 2022 at 06:45 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `school_college`
+-- Database: `mega_college`
 --
 
 -- --------------------------------------------------------
@@ -125,6 +125,20 @@ INSERT INTO `certificates` (`certificate_id`, `name`, `featured_image`, `is_acti
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `contact`
+--
+
+CREATE TABLE `contact` (
+  `id` int(11) NOT NULL,
+  `name` varchar(200) NOT NULL,
+  `email` varchar(200) NOT NULL,
+  `phone` varchar(200) NOT NULL,
+  `message` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `counsellors`
 --
 
@@ -172,7 +186,8 @@ CREATE TABLE `events` (
 --
 
 INSERT INTO `events` (`event_id`, `event_date`, `location`, `featured_image`, `description`, `event_category_id`) VALUES
-(1, '2022-01-01', '', '080ae-1.jpg', '<p>Pellentese turpis dignissim amet area ducation process facilitating Knowledge. Pellentese turpis dignissim amet area ducation process facilitating Knowledge. Pellentese turpis dignissim amet area ducation.</p>\n', 1);
+(1, '2022-01-01', '', '080ae-1.jpg', '<p>Pellentese turpis dignissim amet area ducation process facilitating Knowledge. Pellentese turpis dignissim amet area ducation process facilitating Knowledge. Pellentese turpis dignissim amet area ducation.</p>\n', 1),
+(2, '2022-01-05', 'Boudha, Kathmandu', 'a2c70-9.jpg', '<p>Directed by Thames alumni, Hari Krishna Adhikari, the act showcased the mythological story behind celebrating Dashain, the victory of goddess Durga over the evil Mahisasur. With powerful dialogues, well-timed and synchronized music, and sound effects, the actors and the entire crew gave us a unique perspective on the story. The act presented parallel versions of the mythological tale, one in the modern world and the other in the mythological world.&nbsp;</p>\r\n', 1);
 
 -- --------------------------------------------------------
 
@@ -192,7 +207,7 @@ CREATE TABLE `event_category` (
 --
 
 INSERT INTO `event_category` (`event_category_id`, `category_name`, `featured_image`, `is_active`) VALUES
-(1, 'IT', '', 0);
+(1, 'IT', '', 1);
 
 -- --------------------------------------------------------
 
@@ -311,7 +326,8 @@ INSERT INTO `menu_master` (`menu_id`, `menu_code`, `menu_name`, `menu_index`, `m
 (42, 'noticeManagement', 'Notice Management', 6, 'outer', 0, 'Y', 'bx bx-news', 'javascript:', '2022-01-17 10:13:37', 2, NULL, NULL, NULL),
 (43, 'scholarshipManagement', 'Scholarship', 4, 'outer', 28, 'Y', NULL, 'App/scholarship', '2022-01-17 10:23:44', 2, NULL, NULL, NULL),
 (44, 'programVideos', 'Program Videos', 3, 'outer', 3, 'Y', NULL, 'App/programVideos', '2022-01-17 11:02:49', 2, NULL, NULL, NULL),
-(45, 'counterM', 'Counter', 4, 'outer', 28, 'Y', NULL, 'App/counter', '2022-01-23 04:24:05', 2, NULL, NULL, NULL);
+(45, 'counterM', 'Counter', 4, 'outer', 28, 'Y', NULL, 'App/counter', '2022-01-23 04:24:05', 2, NULL, NULL, NULL),
+(46, 'inbox', 'Inbox', 1, 'outer', 11, 'Y', NULL, 'App/inbox', '2022-01-25 05:39:35', 2, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -347,7 +363,7 @@ CREATE TABLE `programs` (
 --
 
 INSERT INTO `programs` (`program_id`, `name`, `faculty_id`, `description`, `featured_image`, `is_active`) VALUES
-(1, 'science', 1, '', '54007-hnet.com-image.jpg', 1),
+(1, 'science', 1, '<p>Mega College is more than just a place where you come to study for your degree. It is a community of students and faculty from diverse background coming together with a common belief that learning is a lifelong process. On one hand, you will always find being pushed to take responsibility of your own learning while on the other hand you will be encouraged to question, challenge and critically reflect both in and outside the classroom.</p>\r\n', 'a9cfc-4.jpg', 1),
 (2, 'BBA', 2, '', '2d9a2-9.jpg', 1),
 (3, 'BBS', 2, '', 'cac0f-10.jpg', 1),
 (4, 'MBA', 3, '', '887fa-9.jpg', 1);
@@ -481,7 +497,7 @@ CREATE TABLE `site_setting` (
 --
 
 INSERT INTO `site_setting` (`site_id`, `site_name`, `site_logo`, `fav_icon`, `phone_number`, `email_address`, `address`) VALUES
-(1, 'School college', 'd3452-logo-primary.png', 'cfe27-favicon.png', '0145552210', 'school@info.com', 'kathmandu,Nepal');
+(1, 'School college', '3ba8f-mega.png', '6bd8f-mega.png', '0145552210', 'school@info.com', 'kathmandu,Nepal');
 
 -- --------------------------------------------------------
 
@@ -634,6 +650,12 @@ ALTER TABLE `certificates`
   ADD PRIMARY KEY (`certificate_id`);
 
 --
+-- Indexes for table `contact`
+--
+ALTER TABLE `contact`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `counsellors`
 --
 ALTER TABLE `counsellors`
@@ -779,7 +801,7 @@ ALTER TABLE `academic_partner`
 -- AUTO_INCREMENT for table `admission`
 --
 ALTER TABLE `admission`
-  MODIFY `admission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `admission_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `admission_info`
@@ -792,6 +814,12 @@ ALTER TABLE `admission_info`
 --
 ALTER TABLE `certificates`
   MODIFY `certificate_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `contact`
+--
+ALTER TABLE `contact`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `counsellors`
@@ -809,7 +837,7 @@ ALTER TABLE `email_config_setting`
 -- AUTO_INCREMENT for table `events`
 --
 ALTER TABLE `events`
-  MODIFY `event_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `event_id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `event_category`
